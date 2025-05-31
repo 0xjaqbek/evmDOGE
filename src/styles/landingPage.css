@@ -1,0 +1,210 @@
+/* src/styles/landingPage.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* Custom landing page styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #0a0a0a;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+.gold-text {
+    color: #D4AF37;
+}
+
+.gold-border {
+    border-color: #D4AF37;
+}
+
+.gold-bg {
+    background-color: #D4AF37;
+}
+
+.dark-brown-bg {
+    background-color: #1A120B;
+}
+
+.feature-card {
+    transition: all 0.3s ease;
+    border: 1px solid #333;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+    border-color: #D4AF37;
+}
+
+.model-container {
+    perspective: 1000px;
+}
+
+.model-3d {
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px) rotateY(0deg); }
+    50% { transform: translateY(-20px) rotateY(10deg); }
+    100% { transform: translateY(0px) rotateY(0deg); }
+}
+
+.ninja-mode {
+    position: relative;
+    overflow: hidden;
+}
+
+.ninja-mode::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, rgba(0,0,0,0) 70%);
+    animation: rotate 20s linear infinite;
+    z-index: 0;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.tokenomics-card {
+    background: linear-gradient(145deg, #1A120B 0%, #0a0a0a 100%);
+    border: 1px solid #333;
+    transition: all 0.3s ease;
+}
+
+.tokenomics-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);
+}
+
+/* Wallet button override for landing page */
+.wallet-adapter-dropdown-list {
+    background: #1A120B !important;
+}
+
+.wallet-adapter-dropdown-list-item {
+    color: #fff !important;
+}
+
+.wallet-adapter-dropdown-list-item:hover {
+    background: #D4AF37 !important;
+    color: #000 !important;
+}
+
+.wallet-adapter-button-trigger {
+    colof: #D4AF37;
+}
+
+/* Landing page specific wallet button style */
+.landing-wallet-button {
+    background-color: #D4AF37 !important;
+    color: black !important;
+    padding: 0.5rem 1.5rem !important;
+    border-radius: 9999px !important;
+    font-weight: 500 !important;
+    transition: all 0.15s ease-in-out !important;
+}
+
+.landing-wallet-button:hover {
+    background-color: #b6922a !important;
+}
+
+/* Add these to your landingPage.css file */
+
+/* Modal background and container styling */
+.wallet-adapter-modal {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+  }
+  
+  .wallet-adapter-modal-wrapper {
+    background-color: #1A120B !important; /* Dark brown background */
+    border: 1px solid #333 !important;
+    color: white !important;
+    max-width: 500px !important;
+  }
+  
+  .wallet-adapter-modal-title {
+    color: #D4AF37 !important; /* Gold text for the title */
+  }
+  
+  .wallet-adapter-modal-list {
+    margin: 0 0 4px !important;
+  }
+  
+  /* Fix the wallet buttons in the modal to be rectangular */
+  .wallet-adapter-modal-list .wallet-adapter-button {
+    background-color: #0a0a0a !important; /* Dark background */
+    border-radius: 8px !important; /* Slightly rounded corners, not completely round */
+    border: 1px solid #333 !important;
+    color: white !important;
+    font-family: 'Poppins', sans-serif !important;
+    transition: all 0.2s ease !important;
+    padding: 12px 20px !important;
+    margin-bottom: 8px !important;
+    width: 100% !important;
+    justify-content: flex-start !important;
+    height: auto !important;
+  }
+  
+  .wallet-adapter-modal-list .wallet-adapter-button:hover {
+    background-color: #333 !important;
+    border-color: #D4AF37 !important; /* Gold border on hover */
+  }
+  
+  /* Style the wallet icons */
+  .wallet-adapter-modal-list .wallet-adapter-button-start-icon {
+    margin-right: 12px !important;
+  }
+  
+  /* Style the close button */
+  .wallet-adapter-modal-button-close {
+    background-color: transparent !important;
+    color: white !important;
+    opacity: 0.7 !important;
+  }
+  
+  .wallet-adapter-modal-button-close:hover {
+    opacity: 1 !important;
+    background-color: transparent !important;
+  }
+
+  .wallet-adapter-button,
+button[class^="wallet-adapter"] {
+  background-color: #D4AF37 !important;
+  color: black !important;
+  border-radius: 9999px !important;
+  border: none !important;
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 500 !important;
+  padding: 0.5rem 1.5rem !important;
+  opacity: 1 !important;
+}
+
+/* Smooth transition for header background */
+.fixed-nav {
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    backdrop-filter: blur(5px);
+  }
+  
+  /* Optional: Change appearance when scrolling down */
+  .nav-scrolled {
+    background-color: rgba(26, 18, 11, 0.98) !important; /* Dark brown background with high opacity */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+  }
+  
+  /* Add smooth scrolling to the whole page */
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem; /* Adjust this value based on your nav height */
+  }
+  
+  /* Fix for section anchors with fixed header */
+  section[id] {
+    scroll-margin-top: 5rem;
+  }

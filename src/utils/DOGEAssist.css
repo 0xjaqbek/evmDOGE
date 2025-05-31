@@ -1,0 +1,360 @@
+/* src/components/DOGEAssist.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --doge-primary-color: #f2a900; /* DOGE gold color to match your theme */
+  --doge-primary-dark: #e09900;
+  --doge-primary-light: #ffd66e;
+  --doge-secondary-color: #cb7e1d;
+  --doge-text-color: #333333;
+  --doge-text-light: #666666;
+  --doge-background-color: #0a0a0a; /* Match your dark background */
+  --doge-card-color: #1a1a1a; /* Slightly lighter than background */
+  --doge-border-color: #333333; /* Dark border to match theme */
+  --doge-shadow-color: rgba(0, 0, 0, 0.3);
+  --doge-error-color: #ef4444;
+  --doge-success-color: #10b981;
+  --doge-warning-color: #f59e0b;
+  --doge-dark-mode-background: #0a0a0a;
+  --doge-dark-mode-card: #1a1a1a;
+  --doge-dark-mode-border: #333333;
+  --doge-dark-mode-text: #e2e8f0;
+  --doge-dark-mode-text-light: #94a3b8;
+  --doge-font-family: 'Poppins', 'Inter', system-ui, -apple-system, sans-serif;
+  --doge-transition-speed: 0.3s;
+  --doge-border-radius: 12px;
+}
+
+.doge-chat-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-family: var(--doge-font-family);
+  z-index: 9999; /* Very high z-index to ensure it's above everything */
+  transition: all var(--doge-transition-speed) ease;
+}
+
+.doge-chat-container.open {
+  width: 350px;
+  height: 550px;
+}
+
+.doge-chat-container.fullscreen {
+  width: 80vw;
+  height: 80vh;
+  max-width: 1000px;
+  max-height: 800px;
+}
+
+.doge-chat-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--doge-primary-color);
+  color: black;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 20px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 16px;
+  box-shadow: 0 4px 14px var(--doge-shadow-color);
+  transition: all var(--doge-transition-speed) ease;
+}
+
+.doge-chat-button:hover {
+  background-color: var(--doge-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(242, 169, 0, 0.3);
+}
+
+.doge-chat-icon {
+  margin-right: 8px;
+  font-size: 20px;
+}
+
+.doge-chat-box {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #1a1a1a; /* Dark background */
+  border-radius: var(--doge-border-radius);
+  overflow: hidden;
+  box-shadow: 0 4px 20px var(--doge-shadow-color);
+  border: 1px solid #333333; /* Darker border */
+}
+
+.doge-chat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  background-color: var(--doge-primary-color);
+  color: black;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.doge-chat-header h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.doge-header-controls {
+  display: flex;
+  gap: 8px;
+}
+
+.doge-control-button {
+  background: none;
+  border: none;
+  color: black;
+  font-size: 16px;
+  cursor: pointer;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: background-color var(--doge-transition-speed) ease;
+}
+
+.doge-control-button:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.doge-chat-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background-color: #1a1a1a; /* Dark background */
+}
+
+.doge-message {
+  max-width: 85%;
+  padding: 10px 14px;
+  border-radius: 16px;
+  font-size: 14px;
+  line-height: 1.5;
+  animation: dogeFadeIn 0.3s ease;
+  box-shadow: 0 1px 2px var(--doge-shadow-color);
+}
+
+@keyframes dogeFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.doge-user-message {
+  align-self: flex-end;
+  background-color: var(--doge-primary-color);
+  color: black;
+  border-bottom-right-radius: 4px;
+}
+
+.doge-assistant-message {
+  align-self: flex-start;
+  background-color: #222222; /* Dark message background */
+  color: #e0e0e0; /* Light message text */
+  border: 1px solid #333333; /* Dark border */
+  border-bottom-left-radius: 4px;
+}
+
+.doge-message-content {
+  position: relative;
+}
+
+.typed-text {
+  display: inline;
+  white-space: pre-wrap;
+}
+
+.cursor {
+  display: inline-block;
+  width: 2px;
+  height: 18px;
+  background-color: var(--doge-primary-color);
+  animation: blink 0.8s infinite;
+  vertical-align: middle;
+  margin-left: 1px;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+.doge-input-area {
+  display: flex;
+  padding: 12px 16px;
+  border-top: 1px solid #333333;
+  background-color: #1a1a1a;
+}
+
+.doge-message-input {
+  flex: 1;
+  padding: 12px 16px;
+  border: 1px solid #333333;
+  border-radius: 24px;
+  font-family: var(--doge-font-family);
+  font-size: 14px;
+  background-color: #222222;
+  color: #e0e0e0;
+  transition: border-color var(--doge-transition-speed) ease;
+}
+
+.doge-message-input:focus {
+  outline: none;
+  border-color: var(--doge-primary-color);
+  box-shadow: 0 0 0 2px var(--doge-primary-light);
+}
+
+.doge-message-input::placeholder {
+  color: #666666;
+}
+
+.doge-send-button {
+  background-color: var(--doge-primary-color);
+  color: black;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin-left: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color var(--doge-transition-speed) ease;
+}
+
+.doge-send-button:hover:not(:disabled) {
+  background-color: var(--doge-primary-dark);
+}
+
+.doge-send-button:disabled {
+  background-color: #444444;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.doge-send-button::after {
+  content: '→';
+  font-size: 18px;
+}
+
+.doge-error-message {
+  align-self: center;
+  padding: 10px 16px;
+  background-color: rgba(239, 68, 68, 0.2);
+  color: var(--doge-error-color);
+  border-radius: 8px;
+  margin: 10px 0;
+  font-size: 13px;
+}
+
+.doge-typing-indicator {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.doge-typing-indicator span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #666666;
+  display: inline-block;
+  animation: dogeTypingAnimation 1.4s infinite ease-in-out both;
+}
+
+.doge-typing-indicator span:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.doge-typing-indicator span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.doge-typing-indicator span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes dogeTypingAnimation {
+  0%, 100% { transform: scale(0.75); opacity: 0.5; }
+  50% { transform: scale(1); opacity: 1; }
+}
+
+.doge-cancel-button {
+  margin-left: 12px;
+  padding: 4px 8px;
+  background-color: transparent;
+  color: #666666;
+  border: 1px solid #333333;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all var(--doge-transition-speed) ease;
+}
+
+.doge-cancel-button:hover {
+  background-color: #333333;
+  color: #e0e0e0;
+}
+
+.doge-chat-footer {
+  padding: 8px 16px;
+  text-align: center;
+  font-size: 12px;
+  color: #666666;
+  border-top: 1px solid #333333;
+}
+
+/* Code block styling */
+.doge-message pre {
+  background-color: #282c34;
+  color: #abb2bf;
+  padding: 12px;
+  border-radius: 6px;
+  overflow-x: auto;
+  margin: 12px 0;
+  font-family: 'Fira Code', 'Courier New', Courier, monospace;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.doge-message code {
+  font-family: 'Fira Code', 'Courier New', Courier, monospace;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-size: 90%;
+}
+
+/* Dark mode is already the default for your app */
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+  .doge-chat-container.open {
+    width: 300px;
+    height: 450px;
+  }
+
+  .doge-chat-container.fullscreen {
+    width: 100vw;
+    height: 100vh;
+    bottom: 0;
+    right: 0;
+    border-radius: 0;
+  }
+
+  .doge-chat-button {
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+}

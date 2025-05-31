@@ -1,0 +1,60 @@
+/* src/styles/theme.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  /* Primary colors from landing page */
+  --color-gold: #D4AF37;
+  --color-gold-light: #E5C158;
+  --color-gold-dark: #B89225;
+  --color-brown-dark: #1A120B;
+  --color-brown-medium: #2D1F11;
+  --color-brown-light: #3C291A;
+  --color-app-bg: #0a0a0a;
+  
+  /* Secondary colors from original app (for fallback) */
+  --color-indigo: #4F46E5;
+  --color-purple: #9333EA;
+  --color-blue: #2563EB;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--color-app-bg);
+  color: #ffffff;
+}
+
+/* Button styles */
+.primary-button {
+  @apply px-4 py-2 bg-gold text-black rounded-md hover:bg-gold-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold transition-colors;
+}
+
+.secondary-button {
+  @apply px-4 py-2 bg-brown-dark text-white rounded-md border border-gold hover:bg-brown-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold transition-colors;
+}
+
+/* Card styles */
+.info-card {
+  @apply bg-brown-dark rounded-lg shadow-md p-6 border border-gray-700;
+}
+
+/* Header styling */
+.welcome-card {
+  @apply bg-gradient-to-r from-gold-dark to-gold rounded-xl shadow-lg p-6 mb-8;
+}
+
+/* Other utility classes */
+.gold-text {
+  @apply text-gold;
+}
+
+.gold-border {
+  @apply border-gold;
+}
+
+.gold-bg {
+  @apply bg-gold;
+}
+
+.dark-brown-bg {
+  @apply bg-brown-dark;
+}
